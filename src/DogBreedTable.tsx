@@ -9,12 +9,12 @@ function DogBreedTable() {
       .then(data => {
         setBreeds(data)
         setLoading(false)
-        })
+      })
   }, [])
 
   function renderTable() {
     return (
-        breeds.map((breed, index) => {
+      breeds.map((breed, index) => {
         const { name, temperament, image } = breed
         const { url } = image
         return (
@@ -34,11 +34,11 @@ function DogBreedTable() {
 
   return(
     <div>
-    { loading ? "loading":
-      <table>
+      { loading ? "loading":
+        <table>
           {renderTable()}
-      </table>
-    }
+        </table>
+      }
     </div>
   )
 }
