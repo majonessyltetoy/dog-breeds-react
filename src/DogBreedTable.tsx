@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
+const API_URL = "https://api.thedogapi.com/v1/breeds"
+
 function DogBreedTable() {
   const [breeds, setBreeds] = useState([])
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    fetch("https://api.thedogapi.com/v1/breeds")
+    fetch(API_URL)
       .then(r => r.json())
       .then(data => {
         setBreeds(data)
         setLoading(false)
-      })
+      }, (error) => {
+        if (error){
+          alert("Could not load\n"+API_URL)
+        }})
   }, [])
 
   function renderTable() {
