@@ -15,11 +15,11 @@ function DogBreedTable() {
   function renderTable() {
     return (
       <table>
-        {breeds.map((breed:any, index) =>
+        {breeds.map((breed: any, index) =>
           <tbody key={index}>
             <tr>
               <th>{breed.name}</th>
-              <td rowSpan={2}><img src={breed.image.url} alt="img"/></td>
+              <td rowSpan={2}><img src={breed.image.url} alt="img" /></td>
             </tr>
             <tr>
               <td>{breed.temperament}</td>
@@ -30,9 +30,9 @@ function DogBreedTable() {
     )
   }
 
-  return(
+  return (
     <div>
-      { loading ? "loading": renderTable() }
+      { loading ? "loading" : renderTable()}
     </div>
   )
 }
