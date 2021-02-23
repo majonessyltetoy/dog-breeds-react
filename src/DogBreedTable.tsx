@@ -14,31 +14,25 @@ function DogBreedTable() {
 
   function renderTable() {
     return (
-      breeds.map((breed, index) => {
-        const { name, temperament, image } = breed
-        const { url } = image
-        return (
-          <tbody>
-            <tr key={index}>
-              <th>{name}</th>
-              <td rowSpan={2}><img src={url} /></td>
+      <table>
+        {breeds.map((breed:any, index) =>
+          <tbody key={index}>
+            <tr>
+              <th>{breed.name}</th>
+              <td rowSpan={2}><img src={breed.image.url} alt="img"/></td>
             </tr>
             <tr>
-              <td>{temperament}</td>
+              <td>{breed.temperament}</td>
             </tr>
           </tbody>
-        )
-      })
+        )}
+      </table>
     )
   }
 
   return(
     <div>
-      { loading ? "loading":
-        <table>
-          {renderTable()}
-        </table>
-      }
+      { loading ? "loading": renderTable() }
     </div>
   )
 }
