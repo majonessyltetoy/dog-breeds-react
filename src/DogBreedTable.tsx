@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
+
+interface Breed{
+  id: number
+  name: string
+  description: string // unused
+  temperament: string
+  image: {
+    width: number     // unused
+    height: number    // unused
+    url: string
+  }
+}
+
 const API_URL = "https://api.thedogapi.com/v1/breeds"
 
 function DogBreedTable() {
@@ -20,8 +33,8 @@ function DogBreedTable() {
   function renderTable() {
     return (
       <table>
-        {breeds.map((breed: any, index) =>
-          <tbody key={index}>
+        {breeds.map((breed: Breed) =>
+          <tbody key={breed.id}>
             <tr>
               <th>{breed.name}</th>
               <td rowSpan={2}><img src={breed.image.url} alt="img" /></td>
